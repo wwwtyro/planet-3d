@@ -1,0 +1,34 @@
+<html>
+
+    <head>
+
+        <link rel="shortcut icon" href="favicon.ico?v=2" />
+        <script src="static/js/jquery.min.js"></script>
+        <script src="static/js/ace/ace.js"></script>
+        <script src="static/js/vex.combined.min.js"></script>
+        <script>vex.defaultOptions.className = 'vex-theme-flat-attack';</script>
+        <script src="static/js/bundle.js"></script>
+        <link rel="stylesheet" href="static/css/vex.css" />
+        <link rel="stylesheet" href="static/css/vex-theme-flat-attack.css" />
+        <link rel="stylesheet" type="text/css" href="static/css/index.css">
+
+    </head>
+
+    <body>
+
+        <canvas id="render-canvas"></canvas>
+
+        <div id='editor'></div>
+        <div id='error'></div>
+        <div id='buttons' class='white'>
+            <span id='buttons-help' class='pointer margin-left-16'><span class='glyphicon glyphicon-thumbs-up'></span> Help</span>
+            <span id='buttons-presets' class='pointer margin-left-16'><span class='glyphicon glyphicon-adjust'></span> Presets</span>
+            <span id='buttons-save' class='pointer margin-left-16'><span class='glyphicon glyphicon-floppy-save'></span> Save</span>
+        </div>
+
+    <div id="rendering">Rendering...</div>
+    <div id="initializing">Initializing...</div>
+
+    </body>
+
+</html>

@@ -1,0 +1,45 @@
+{
+    preview: {
+        light: {
+            position: [1,1,1]
+            color: [1,1,1]
+            ambient: [0,0,0]
+            specularFalloff: 16
+        }
+        atmosphere: {
+            wrap: 1.0
+            color: [0,0,0]
+            width: 0.0
+        }
+        glow: {
+            iterations: 0
+            strength: 0
+        }
+    }
+    texture: {
+        seed: seed
+        resolution: 512
+        heightGradient: [
+            {val: [0,0,0], stop: 0.0}
+        ]
+        normalGradient: [
+            {val: 0.02, stop: 0.0}
+        ]
+        specularGradient: [
+            {val: 0, stop: 0.0}
+        ]
+        emissionGradient: [
+            {val: [0,0,0], stop: 0.0}
+        ]
+        scale: [1, 1, 1]
+        falloff: 1.0
+        detail: 1
+        clouds: {
+            color: [1,1,1]
+            scale: [1,1,1]
+            falloff: 1.0
+            opacity: 0.0
+            detail: 1
+        }
+    }
+}

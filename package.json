@@ -1,0 +1,34 @@
+{
+  "name": "planet-3d",
+  "version": "1.0.0",
+  "description": "Procedural 3D planet texture and 2D planet sprite generator.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "budo --live src/main.js:static/js/bundle.js -- -t glslify -t brfs",
+    "build": "browserify -t glslify -t brfs src/main.js > static/js/bundle.js",
+    "lint": "eslint src/**/*.js"
+  },
+  "author": "Rye Terrell",
+  "license": "Unlicense",
+  "dependencies": {
+    "filesaver.js": "^0.2.0",
+    "gl-fbo": "^2.0.5",
+    "gl-geometry": "^1.2.0",
+    "gl-mat4": "^1.1.4",
+    "gl-shader": "^4.1.0",
+    "glsl-noise": "0.0.0",
+    "hjson": "^1.7.4",
+    "jszip": "^2.5.0",
+    "lodash.assign": "^3.2.0",
+    "lodash.defaultsdeep": "^3.10.0",
+    "markdown": "^0.5.0",
+    "rng": "^0.2.2",
+    "sprintf": "^0.1.5",
+    "brfs": "^1.4.1",
+    "browserify": "^12.0.1",
+    "budo": "^6.1.0",
+    "eslint": "^1.10.3",
+    "glslify": "^3.1.0"
+  }
+}

@@ -1,0 +1,46 @@
+{
+    preview: {
+        light: {
+            position: [1,1,1]
+            color: [1,1,1]
+            ambient: [0,0,0]
+            specularFalloff: 16
+        }
+        atmosphere: {
+            wrap: 1.0
+            color: [1,0.5,0.25]
+            width: 0.0
+        }
+        glow: {
+            iterations: 8
+            strength: 1.05
+        }
+    }
+    texture: {
+        seed: lava
+        resolution: 512
+        heightGradient: [
+            {val: [0.0, 0.0, 0.0], stop: 0.26}
+            {val: [0.6, 0.3, 0.2], stop: 0.5}
+            {val: [0.8, 0.4, 0.2], stop: 1.0}
+        ]
+        normalGradient: [
+            {val: 0.00, stop: 0.0}
+            {val: 0.00, stop: 0.25}
+            {val: 0.02, stop: 0.26}
+            {val: 0.02, stop: 1.0}
+        ]
+        specularGradient: [
+            {val: 0, stop: 0.0}
+        ]
+        emissionGradient: [
+            {val: [1.0, 1.0, 0.0], stop: 0.0}
+            {val: [1.0, 0.5, 0.0], stop: 0.2}
+            {val: [1.0, 0.0, 0.0], stop: 0.25}
+            {val: [0.0, 0.0, 0.0], stop: 0.26}
+        ]
+        scale: [2.0, 2.0, 2.0]
+        falloff: 1.0
+        detail: 6
+    }
+}

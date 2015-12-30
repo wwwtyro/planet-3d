@@ -1,0 +1,128 @@
+@import url("//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css");
+
+body {
+    margin: 0px;
+    user-select: none;
+}
+
+#editor {
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    width: 33%;
+    height: 100%;
+}
+
+#render-canvas {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 67%;
+    background-image: url(../img/bg.png);
+    background-size: cover;
+}
+
+#initializing {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+#rendering {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 67%;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+#error {
+    position: fixed;
+    top: 1%;
+    left: 1%;
+    width: 65%;
+    color: yellow;
+    background: red;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px dashed yellow;
+}
+
+#textures {
+    display: none;
+    position: fixed;
+    top: 1%;
+    left: 1%;
+    width: 98%;
+    height: 98%;
+    background: #222;
+    color: #fff;
+    padding: 16px;
+    box-sizing: border-box;
+    border-radius: 0px;
+    border: 8px solid #555;
+    overflow-y: auto;
+}
+
+#input-texture-filename {
+    text-align: right;
+}
+
+#buttons {
+    position: fixed;
+    box-sizing: border-box;
+    text-align: right;
+    padding: 8px;
+    width: 67%;
+    left: 0%;
+    bottom:0%;
+    background: rgba(0,0,0,0.5);
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.texture-container {
+    float: left;
+    margin-right: 16px;
+    text-align: center;
+}
+
+.clear {
+    clear: both;
+}
+
+.white {
+    color: white;
+}
+
+.middle {
+    vertical-align: middle;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.margin-left-16 {
+    margin-left: 16px;
+}
