@@ -24,32 +24,11 @@ var presets = require('./presets/presets');
 var help = markdown.toHTML(fs.readFileSync(__dirname + "/help.md", 'utf8'));
 
 window.onload = function() {
-    if (navigator.userAgent.toLowerCase().indexOf('chrome') < 0) {
-        vex.dialog.open({
-            message: 'Warning: Planet 3D is pretty much only going to work on the Google Chrome browser.',
-            buttons: [
-                $.extend({}, vex.dialog.buttons.YES, {
-                    text: "That's okay, I'll risk it."
-                }), 
-                $.extend({}, vex.dialog.buttons.NO, {
-                    text: "Okay, I'll go use Chrome."
-                })
-            ],
-            callback: function(fields) {
-                if (fields === false) {
-                    document.getElementById('initializing').innerHTML = "Good idea! :)"
-                    return;
-                }
-                setTimeout(initialize, 100);
-            }
-        });
-        return;
-    }
-    setTimeout(initialize, 0);
-}; 
+    initialize();
+};
 
 function initialize() {
-    
+
     var editor = ace.edit('editor');
     editor.getSession().setUseWorker(false); // disable syntax validation
     editor.$blockScrolling = Infinity; // prevent warning in console
@@ -78,7 +57,7 @@ function initialize() {
 
     var PTR = new PlanetTexturesRenderer();
     var canvases;
-    
+
     var PR = new PlanetRenderer(canvas);
 
     var trackball = new Trackball(canvas, {
@@ -87,9 +66,9 @@ function initialize() {
             needRender = true;
         }
     });
-    
+
     trackball.spin(10, 0);
-    
+
     var fov = 70;
     var scale = 1.0;
 
@@ -98,17 +77,17 @@ function initialize() {
     window.onfocus = function() {
         editor.focus();
     };
-    
+
     window.onmouseup = function(e) {
         if (!dialoging) {
             editor.focus();
         }
     }
-    
+
     window.onresize = function() {
         onResize();
     };
-    
+
     canvas.addEventListener('wheel', function(e) {
         e.preventDefault();
         if (e.shiftKey) {
@@ -129,11 +108,11 @@ function initialize() {
         loadOpts();
         needRender = true;
     })
-    
+
     canvas.onresize = function() {
         onResize();
     };
-    
+
     document.getElementById('buttons-help').onclick = function() {
         dialoging = true;
         vex.dialog.open({
@@ -141,11 +120,11 @@ function initialize() {
             buttons: [
                 $.extend({}, vex.dialog.buttons.YES, {
                     text: 'Got it!'
-                }), 
+                }),
             ],
         });
     };
-    
+
     document.getElementById('buttons-save').onclick = function() {
         dialoging = true;
         vex.dialog.open({
@@ -154,7 +133,7 @@ function initialize() {
             buttons: [
                 $.extend({}, vex.dialog.buttons.YES, {
                     text: 'Save'
-                }), 
+                }),
                 $.extend({}, vex.dialog.buttons.NO, {
                     text: 'Cancel'
                 })
@@ -187,7 +166,7 @@ function initialize() {
             }
         });
     };
-    
+
     document.getElementById('buttons-presets').onclick = function() {
         dialoging = true;
         var presetKeys = Object.keys(presets);
@@ -205,7 +184,7 @@ function initialize() {
             buttons: [
                 $.extend({}, vex.dialog.buttons.YES, {
                     text: 'Load'
-                }), 
+                }),
                 $.extend({}, vex.dialog.buttons.NO, {
                     text: 'Cancel'
                 })
@@ -222,11 +201,11 @@ function initialize() {
             }
         });
     };
-    
+
     function onResize() {
         needRender = true;
     }
-    
+
     function loadOpts() {
         var error = document.getElementById('error');
         error.style.display = 'none';
@@ -270,30 +249,30 @@ function initialize() {
     }
 
     reload();
-    
+
     function render() {
-        
+
         requestAnimationFrame(render);
-        
+
         if (!initialized) {
             return;
         }
-        
+
         if (needRender === false) {
             return;
         }
-        
+
         needRender = false;
-        
+
         var preview = opts.preview;
-        
+
         canvas.width = canvas.clientWidth * scale;
         canvas.height = canvas.clientHeight * scale;
 
         opts.preview.rotation = trackball.rotation;
         PR.render(opts.preview);
     }
-    
+
     render();
 
 }
